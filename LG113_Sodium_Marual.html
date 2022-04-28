@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  	<form id="form" onsubmit="return onSubmit()" onreset="onReset()">
+    <fieldset>
+  		<label for="name">Name:</label>
+  		<input type="text" id="name" name="name"  onblur="onBlur(this)" onfocus="onFocus(this)">
+</br>
+  		<label for="userName">Username:</label>
+  		<input type="text" id="userName" name="userName"  onblur="onBlur(this)" onfocus="onFocus(this)">
+</br>
+  		<label for="password">Password:</label>
+  		<input type="password" id="pWord" name="password"  onblur="onBlur(this)" onfocus="onFocus(this)">
+</br>
+  		<label for="email">Email:</label>
+  		<input type="email" id="email" name="email"  onblur="onBlur(this)" onfocus="onFocus(this)">
+</br>
+  		<label for="address">Address:</label>
+  		<input type="text" id="address" name="address"  onblur="onBlur(this)" onfocus="onFocus(this)">
+</br>
+  		<label for="comments">Comments:</label> </br>
+  		<textarea id="tArea" name="comments" rows="4" columuns="50"></textarea>
+</br>   
+      <label for="gen">Gender:</label>
+      <select name="gender" id="gen">
+        <option value="Prefer not to mention">Prefer not to mention</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+</br>
+      <input type="submit" value="Submit Form">
+      <input type="reset" value="Reset">
+    </fieldset>
+  	</form>
+</br>
+    <legend>
+    <div id="div1">
+    </legend>
+    <script>
+      function onBlur(x) {
+          if(x.value == "") {
+            x.style.border = "2px red solid";
+          }
+          else {
+            x.style.border = "2px green solid";
+          }
+      }
+      function onFocus(x) {
+        x.style.width = "175px";
+      }
+      function onSubmit() {
+        var a = document.getElementById("name").value;
+        var b = document.getElementById("userName").value;
+        var c = document.getElementById("pWord").value;
+        var d = document.getElementById("email").value;
+        var e = document.getElementById("address").value;
+        var f = document.getElementById("tArea").value;
+        var g = document.getElementById("gen").value;
+        document.getElementById("div1").innerHTML = "Name: " + a + "." + "</br>" +
+                                                    "Username: " + b + "." + "</br>" +
+                                                    "Password: " + c + "." + "</br>" +
+                                                    "Email: " + d + "." + "</br>" +
+                                                    "Address: " + e + "." + "</br>" +
+                                                    "Comments: " + f + "." + "</br>" +
+                                                    "Gender: " + g + ".";
+        return false;
+      }
+      function onReset() {
+        document.getElementById("div1").innerHTML = "";
+        document.getElementById("form").reset();
+      }
+    </script>
+  </body>
+</html>
